@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>GitHub Migration & DevOps Event – Microsoft Stockholm</title>
+  <title>GitHub & Azure DevOps Event – Microsoft Stockholm</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="From Azure DevOps to GitHub: Migrate, Integrate & Accelerate. Join us in Stockholm for strategy, demos, migration best practices, security, and platform innovation." />
+  <meta name="description" content="From Azure DevOps to GitHub: Migrate, Integrate & Accelerate with GitHub Copilot — Stockholm. Strategy, migration best practices, hybrid models, security, AI, and platform innovation." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -37,11 +37,7 @@
       --highlight-icon: #10b981;
       --font-stack: 'Inter', system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;
     }
-
-    * {
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: var(--font-stack);
@@ -49,467 +45,191 @@
       color: var(--text);
       -webkit-font-smoothing: antialiased;
     }
-
-    a {
-      color: var(--primary);
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* Top Navigation */
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
     .nav {
-      position: sticky;
-      top: 0;
-      z-index: 60;
+      position: sticky; top: 0; z-index: 60;
       background: rgba(255,255,255,0.82);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
     }
     .nav-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      padding: 10px 30px;
-      gap: 34px;
+      max-width: 1280px; margin: 0 auto;
+      display: flex; align-items: center;
+      padding: 10px 30px; gap: 34px;
     }
     .brand {
-      font-weight: 600;
-      font-size: 15px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--text);
-      letter-spacing: -.5px;
+      font-weight: 600; font-size: 15px;
+      display: flex; align-items: center; gap: 8px;
+      color: var(--text); letter-spacing: -.5px;
     }
-    .brand svg {
-      width: 22px;
-      height: 22px;
-      color: var(--primary);
-    }
-    .nav-links {
-      display: flex;
-      gap: 4px;
-      flex-wrap: wrap;
-    }
+    .brand svg { width: 22px; height: 22px; color: var(--primary); }
+    .nav-links { display: flex; gap: 4px; flex-wrap: wrap; }
     .nav-links a {
-      position: relative;
-      font-size: 13px;
-      font-weight: 500;
-      padding: 8px 14px;
-      border-radius: 8px;
-      line-height: 1;
-      color: var(--text-light);
+      font-size: 13px; font-weight: 500;
+      padding: 8px 14px; border-radius: 8px;
+      color: var(--text-light); line-height: 1;
       transition: background .15s, color .15s;
     }
-    .nav-links a:hover {
-      background: var(--surface-alt);
-      color: var(--text);
-      text-decoration: none;
-    }
-    .nav-links a.active {
-      background: var(--surface-alt);
-      color: var(--text);
-      font-weight: 600;
-    }
-    .nav-cta {
-      margin-left: auto;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
+    .nav-links a:hover { background: var(--surface-alt); color: var(--text); text-decoration: none; }
+    .nav-links a.active,
+    .nav-links a[data-nav-active="true"] { background: var(--surface-alt); color: var(--text); font-weight: 600; }
+    .nav-cta { margin-left: auto; display: flex; align-items: center; gap: 16px; }
     .btn {
-      --btn-bg: var(--primary);
-      --btn-bg-hover: var(--primary-accent);
-      background: var(--btn-bg);
-      color: #fff;
-      font-size: 13.5px;
-      font-weight: 600;
-      padding: 10px 20px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
+      --btn-bg: var(--primary); --btn-bg-hover: var(--primary-accent);
+      background: var(--btn-bg); color:#fff;
+      font-size: 13.5px; font-weight: 600;
+      padding: 10px 20px; border-radius: 999px;
+      border: none; cursor: pointer;
       box-shadow: 0 2px 4px rgba(var(--primary-rgb), 0.3), 0 0 0 1px rgba(17,24,39,0.04);
       transition: background .2s, transform .15s;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
     }
-    .btn:hover {
-      background: var(--btn-bg-hover);
-      text-decoration: none;
-    }
-    .btn:active {
-      transform: translateY(1px);
-    }
-
-    /* Hero */
-    .hero {
-      position: relative;
-      background: var(--gradient-hero);
-      overflow: hidden;
-    }
+    .btn:hover { background: var(--btn-bg-hover); text-decoration: none; }
+    .btn:active { transform: translateY(1px); }
+    .hero { position: relative; background: var(--gradient-hero); overflow: hidden; }
     .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: var(--gradient-accent);
-      pointer-events: none;
-      mix-blend-mode: multiply;
+      content:""; position: absolute; inset: 0;
+      background: var(--gradient-accent); mix-blend-mode: multiply; pointer-events:none;
     }
     .hero-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 70px 30px 40px;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 380px;
-      gap: 56px;
-      position: relative;
-      z-index: 2;
+      max-width:1280px; margin:0 auto;
+      padding:70px 30px 40px;
+      display:grid; grid-template-columns:minmax(0,1fr) 380px;
+      gap:56px; position:relative; z-index:2;
     }
-    @media (max-width: 1080px) {
-      .hero-inner {
-        grid-template-columns: 1fr;
-        padding-top: 54px;
-      }
-      .info-panel {
-        order: 2;
-      }
+    @media (max-width:1080px){
+      .hero-inner { grid-template-columns:1fr; padding-top:54px; }
+      .info-panel { order:2; }
     }
     .hero h1 {
       font-size: clamp(2.1rem, 4.2vw, 2.9rem);
-      line-height: 1.05;
-      margin: 0 0 18px;
-      font-weight: 700;
-      letter-spacing: -1px;
-      color: #111927;
+      line-height:1.05; margin:0 0 18px;
+      font-weight:700; letter-spacing:-1px; color:#111927;
     }
     .hero-lead {
-      font-size: 16px;
-      line-height: 1.55;
-      max-width: 620px;
-      color: var(--text-light);
-      margin: 0 0 32px;
-      font-weight: 400;
+      font-size:16px; line-height:1.55;
+      max-width:660px; color:var(--text-light);
+      font-weight:400; margin:0 0 32px;
     }
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    /* Info Panel */
+    .hero-lead p { margin:0 0 16px; }
+    .hero-lead p:last-child { margin-bottom:0; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:14px; }
     .info-panel {
-      background: var(--surface);
-      border-radius: 14px;
-      padding: 26px 26px 22px;
-      box-shadow: var(--shadow);
-      align-self: start;
-      position: relative;
+      background: var(--surface); border-radius:14px;
+      padding:26px 26px 22px; box-shadow: var(--shadow);
+      align-self:start; position:relative;
     }
-    .info-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      font-size: 13.5px;
-    }
-    .info-row {
-      display: flex;
-      gap: 12px;
-      line-height: 1.35;
-    }
+    .info-grid { display:flex; flex-direction:column; gap:18px; font-size:13.5px; }
+    .info-row { display:flex; gap:12px; line-height:1.35; }
     .info-icon {
-      width: 26px;
-      height: 26px;
-      border-radius: 8px;
+      width:26px; height:26px; border-radius:8px;
       background: var(--surface-alt);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: var(--primary);
+      display:flex; align-items:center; justify-content:center;
+      flex-shrink:0; color:var(--primary);
     }
     .info-label {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: .7px;
-      color: var(--text-faint);
-      margin-bottom: 2px;
+      font-size:11px; font-weight:600;
+      text-transform:uppercase; letter-spacing:.7px;
+      color:var(--text-faint); margin-bottom:2px;
     }
-    .info-value {
-      font-size: 13.5px;
-      font-weight: 500;
-      color: var(--text);
-    }
-
-    /* Section Wrappers */
+    .info-value { font-size:13.5px; font-weight:500; color:var(--text); }
     main {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 18px 30px 120px;
-      display: flex;
-      flex-direction: column;
-      gap: 56px;
+      max-width:1280px; margin:0 auto;
+      padding:18px 30px 120px;
+      display:flex; flex-direction:column; gap:56px;
     }
-    section {
-      scroll-margin-top: 90px;
-    }
+    section { scroll-margin-top:90px; }
     .card {
-      background: var(--surface);
-      border-radius: 14px;
-      box-shadow: var(--shadow);
-      padding: 34px 40px 40px;
+      background:var(--surface); border-radius:14px;
+      box-shadow:var(--shadow); padding:34px 40px 40px;
     }
-    @media (max-width: 800px) {
-      .card {
-        padding: 28px 26px 32px;
-      }
-    }
-
+    @media (max-width:800px){ .card { padding:28px 26px 32px; } }
     .card.split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 46px;
+      display:grid; grid-template-columns:1fr 1fr; gap:46px;
     }
-    @media (max-width: 920px) {
-      .card.split {
-        grid-template-columns: 1fr;
-        gap: 28px;
-      }
-    }
-
+    @media (max-width:920px){ .card.split { grid-template-columns:1fr; gap:28px; } }
     h2.section-title {
-      font-size: 26px;
-      margin: 0 0 26px;
-      line-height: 1.15;
-      letter-spacing: -.5px;
-      font-weight: 600;
-      color: var(--text);
+      font-size:26px; margin:0 0 26px;
+      line-height:1.15; letter-spacing:-.5px;
+      font-weight:600; color:var(--text);
     }
-    h3 {
-      font-size: 17px;
-      margin: 28px 0 8px;
-      font-weight: 600;
-    }
-    p {
-      font-size: 15px;
-      line-height: 1.55;
-      margin: 0 0 18px;
-      color: var(--text-light);
-    }
-    ul.inline-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 20px;
-    }
-
-    /* Agenda Segments */
-    .segments {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-    }
+    p { font-size:15px; line-height:1.55; margin:0 0 18px; color:var(--text-light); }
+    .segments { display:flex; flex-wrap:wrap; gap:18px; }
     .segment {
-      flex: 1 1 200px;
-      min-width: 200px;
-      background: var(--segment-bg);
-      border: 1px solid var(--segment-border);
-      border-radius: 14px;
-      padding: 18px 18px 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      position: relative;
-      box-shadow: 0 2px 6px rgba(17,24,39,0.04);
-      transition: border-color .15s, background .2s;
+      flex:1 1 200px; min-width:200px;
+      background:var(--segment-bg);
+      border:1px solid var(--segment-border);
+      border-radius:14px; padding:18px 18px 16px;
+      display:flex; flex-direction:column; gap:8px;
+      position:relative; box-shadow:0 2px 6px rgba(17,24,39,0.04);
+      transition:border-color .15s, background .2s;
     }
-    .segment:hover {
-      border-color: #d3d9e5;
-      background: #fdfdff;
-    }
+    .segment:hover { border-color:#d3d9e5; background:#fdfdff; }
     .segment-label {
-      font-size: 10px;
-      letter-spacing: 1.3px;
-      font-weight: 600;
-      text-transform: uppercase;
-      color: #5d6473;
+      font-size:10px; letter-spacing:1.3px;
+      font-weight:600; text-transform:uppercase; color:#5d6473;
     }
     .segment-title {
-      font-size: 14.5px;
-      font-weight: 600;
-      color: var(--text);
-      letter-spacing: -.2px;
+      font-size:14.5px; font-weight:600;
+      color:var(--text); letter-spacing:-.2px;
     }
     .segment-desc {
-      font-size: 12.8px;
-      line-height: 1.35;
-      color: var(--text-faint);
-      font-weight: 500;
+      font-size:12.8px; line-height:1.35;
+      color:var(--text-faint); font-weight:500;
     }
-
-    /* Highlights */
-    .highlight-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      gap: 10px;
-    }
+    .highlight-list { list-style:none; margin:0; padding:0; display:grid; gap:10px; }
     .highlight-item {
-      display: flex;
-      gap: 16px;
-      padding: 14px 18px;
-      border-radius: 10px;
-      background: #f2f5f9;
-      font-size: 14px;
-      line-height: 1.4;
-      font-weight: 500;
-      color: var(--text);
+      display:flex; gap:16px; padding:14px 18px;
+      border-radius:10px; background:#f2f5f9;
+      font-size:14px; line-height:1.4; font-weight:500; color:var(--text);
     }
-    .highlight-item strong {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 2px;
-      color: var(--text);
-    }
-    .highlight-icon {
-      width: 20px;
-      height: 20px;
-      margin-top: 2px;
-      flex-shrink: 0;
-      color: var(--highlight-icon);
-    }
-
-    /* Location */
+    .highlight-item strong { display:block; font-weight:600; margin-bottom:2px; color:var(--text); }
+    .highlight-icon { width:20px; height:20px; margin-top:2px; flex-shrink:0; color:var(--highlight-icon); }
     .location-grid {
-      display: grid;
-      grid-template-columns: 1fr 430px;
-      gap: 60px;
-      align-items: start;
+      display:grid; grid-template-columns:1fr 430px;
+      gap:60px; align-items:start;
     }
-    @media (max-width: 1100px) {
-      .location-grid {
-        grid-template-columns: 1fr;
-        gap: 34px;
-      }
-    }
+    @media (max-width:1100px){ .location-grid { grid-template-columns:1fr; gap:34px; } }
     .map-embed {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
+      width:100%; aspect-ratio:4/3; border:1px solid var(--border);
+      border-radius:16px; overflow:hidden; box-shadow:var(--shadow);
     }
-    .map-embed iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    /* Speakers */
+    .map-embed iframe { width:100%; height:100%; border:0; }
     .speakers-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 30px;
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+      gap:30px;
     }
     .speaker-card {
-      background: var(--surface);
-      border-radius: 16px;
-      padding: 30px 26px 30px;
-      box-shadow: var(--shadow);
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      position: relative;
-      overflow: hidden;
+      background:var(--surface); border-radius:16px;
+      padding:30px 26px 30px; box-shadow:var(--shadow);
+      display:flex; flex-direction:column; gap:18px;
+      position:relative; overflow:hidden;
     }
     .speaker-photo-wrap {
-      width: 84px;
-      height: 84px;
-      border-radius: 50%;
-      background: linear-gradient(140deg,var(--primary) 0%, #9d85ff 100%);
-      padding: 3px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 14px -2px rgba(var(--primary-rgb),0.4);
+      width:84px; height:84px; border-radius:50%;
+      background:linear-gradient(140deg,var(--primary) 0%, #9d85ff 100%);
+      padding:3px; display:flex; align-items:center; justify-content:center;
+      box-shadow:0 4px 14px -2px rgba(var(--primary-rgb),0.4);
     }
     .speaker-photo {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      background: #fff;
-      display: block;
+      width:100%; height:100%; border-radius:50%; object-fit:cover; background:#fff; display:block;
     }
-    .speaker-name {
-      font-size: 14.5px;
-      margin: 0 0 4px;
-      font-weight: 600;
-      letter-spacing: .2px;
-      color: var(--text);
-    }
-    .speaker-role {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--text-faint);
-      margin: 0 0 14px;
-    }
-    .speaker-bio {
-      font-size: 13.2px;
-      line-height: 1.5;
-      color: var(--text-light);
-      margin: 0;
-    }
-
-    /* Footer */
+    .speaker-name { font-size:14.5px; margin:0 0 4px; font-weight:600; letter-spacing:.2px; color:var(--text); }
+    .speaker-role { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:1px; color:var(--text-faint); margin:0 0 14px; }
+    .speaker-bio { font-size:13.2px; line-height:1.5; color:var(--text-light); margin:0; }
     footer {
-      margin-top: 90px;
-      background: #fff;
-      border-top: 1px solid var(--border);
-      padding: 48px 30px 70px;
+      margin-top:90px; background:#fff; border-top:1px solid var(--border);
+      padding:48px 30px 70px;
     }
     .footer-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-      font-size: 13px;
-      color: var(--text-faint);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 26px;
-      align-items: center;
-      justify-content: space-between;
+      max-width:1280px; margin:0 auto;
+      font-size:13px; color:var(--text-faint);
+      display:flex; flex-wrap:wrap; gap:26px;
+      align-items:center; justify-content:space-between;
     }
-
-    /* Utilities */
-    .muted {
-      color: var(--text-faint);
-    }
-    .two-col-text {
-      columns: 2;
-      column-gap: 50px;
-    }
-    @media (max-width: 920px) {
-      .two-col-text {
-        columns: 1;
-      }
-    }
-
-    /* Active section highlighting via JS */
-    .nav-links a[data-nav-active="true"] {
-      background: var(--surface-alt);
-      color: var(--text);
-      font-weight: 600;
-    }
+    .btn[href^="#register"] { scroll-behavior:smooth; }
   </style>
 </head>
 <body>
@@ -521,7 +241,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 3c-4.97 0-9 4.03-9 9a9 9 0 0 0 6.14 8.56c.45.08.62-.2.62-.44 0-.22-.01-.94-.01-1.71-2.25.49-2.84-.55-3.02-1.06-.1-.23-.54-1.06-.92-1.28-.31-.17-.76-.6-.01-.61.7-.01 1.2.64 1.37.9.8 1.34 2.08.96 2.59.73.08-.58.31-.96.56-1.18-1.99-.23-4.09-1-4.09-4.42 0-.98.35-1.79.92-2.42-.09-.23-.4-1.16.09-2.41 0 0 .75-.24 2.45.92a8.32 8.32 0 0 1 2.23-.3c.76 0 1.52.1 2.23.3 1.7-1.17 2.45-.92 2.45-.92.49 1.25.18 2.18.09 2.41.57.63.92 1.44.92 2.42 0 3.43-2.11 4.19-4.11 4.41.32.28.6.82.6 1.66 0 1.2-.01 2.17-.01 2.47 0 .24.16.52.62.43A9 9 0 0 0 21 12c0-4.97-4.03-9-9-9Z"/>
         </svg>
-        GitHub Migration Event
+        GitHub & Azure DevOps Event
       </div>
       <div class="nav-links">
         <a href="#about">About</a>
@@ -541,10 +261,13 @@
   <header class="hero" id="about">
     <div class="hero-inner">
       <div class="hero-left">
-        <h1>From Azure DevOps to GitHub:<br />Migrate, Integrate & Accelerate — Stockholm</h1>
-        <p class="hero-lead">
-          Join us for a focused exploration of modern developer platform acceleration. Discover how moving from Azure DevOps to GitHub (or operating a smart hybrid) unlocks developer velocity, integrated security, AI-powered productivity, and sustainable innovation across teams.
-        </p>
+        <h1>From Azure DevOps to GitHub:<br />Migrate, Integrate &amp; Accelerate with GitHub Copilot — Stockholm</h1>
+        <div class="hero-lead">
+          <p>Join Microsoft, GitHub, and Eficode to discover how to successfully migrate from Azure DevOps to GitHub—or harness a powerful hybrid approach—for modern, secure, and efficient software delivery.</p>
+          <p>Nowadays, development teams demand agility, security, and seamless collaboration. While Azure DevOps has long been the backbone for many enterprises, GitHub has rapidly emerged as the leading platform for modern developer experiences and cloud-native innovation.</p>
+          <p>But is it time to switch entirely—or to combine the strengths of both?</p>
+          <p>At this exclusive in-person event hosted at Microsoft Stockholm, experts from Microsoft, GitHub, and Eficode will share strategic insights on transitioning from Azure DevOps to GitHub, migrating repositories and pipelines, and leveraging a hybrid model where both platforms work together.</p>
+        </div>
         <div class="hero-actions">
           <a class="btn" href="#register">
             <span>Register Now</span>
@@ -576,39 +299,39 @@
               <div class="info-value">12:00 PM – 5:00 PM (Doors 12:00 PM)</div>
             </div>
           </div>
-          <div class="info-row">
-            <div class="info-icon">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 21s8-6.58 8-12A8 8 0 0 0 4 9c0 5.42 8 12 8 12Z"/><circle cx="12" cy="9" r="3"/>
-              </svg>
+            <div class="info-row">
+              <div class="info-icon">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 21s8-6.58 8-12A8 8 0 0 0 4 9c0 5.42 8 12 8 12Z"/><circle cx="12" cy="9" r="3"/>
+                </svg>
+              </div>
+              <div>
+                <div class="info-label">Venue</div>
+                <div class="info-value">Microsoft Stockholm<br/>Regeringsgatan 25<br/>111 53 Stockholm</div>
+              </div>
             </div>
-            <div>
-              <div class="info-label">Venue</div>
-              <div class="info-value">Microsoft Stockholm<br/>Regeringsgatan 25<br/>111 53 Stockholm</div>
+            <div class="info-row">
+              <div class="info-icon">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 4h18M8 4v16m8-16v16M3 20h18M5 8h2m10 0h2M5 12h2m10 0h2M5 16h2m10 0h2"/>
+                </svg>
+              </div>
+              <div>
+                <div class="info-label">Format</div>
+                <div class="info-value">Vision • Live Demos • Strategy • Q&amp;A • Networking</div>
+              </div>
             </div>
-          </div>
-          <div class="info-row">
-            <div class="info-icon">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M3 4h18M8 4v16m8-16v16M3 20h18M5 8h2m10 0h2M5 12h2m10 0h2M5 16h2m10 0h2"/>
-              </svg>
+            <div class="info-row">
+              <div class="info-icon">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M7 10v12M17 10v12M3 6l9-4 9 4M21 6v6c0 6-4 10-9 10S3 18 3 12V6"/>
+                </svg>
+              </div>
+              <div>
+                <div class="info-label">Hosts</div>
+                <div class="info-value">GitHub • Microsoft • Eficode</div>
+              </div>
             </div>
-            <div>
-              <div class="info-label">Format</div>
-              <div class="info-value">Vision • Live Demos • Strategy • Q&A • Networking</div>
-            </div>
-          </div>
-          <div class="info-row">
-            <div class="info-icon">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M7 10v12M17 10v12M3 6l9-4 9 4M21 6v6c0 6-4 10-9 10S3 18 3 12V6"/>
-              </svg>
-            </div>
-            <div>
-              <div class="info-label">Hosts</div>
-              <div class="info-value">GitHub • Microsoft • Eficode</div>
-            </div>
-          </div>
         </div>
       </aside>
     </div>
@@ -624,7 +347,7 @@
             <li><strong>Doors Open:</strong> 12:00 PM</li>
             <li><strong>Event Start:</strong> 12:30 PM</li>
             <li><strong>Sessions:</strong> 12:30 PM – 4:30 PM</li>
-            <li><strong>Networking & Refreshments:</strong> 4:30 PM – 5:00 PM</li>
+            <li><strong>Networking &amp; Refreshments:</strong> 4:30 PM – 5:00 PM</li>
           </ul>
         </div>
         <div style="font-size:14px; line-height:1.6; color:var(--text-light); display:flex; flex-direction:column; gap:14px;">
@@ -632,7 +355,7 @@
             We begin with strategic framing, followed by technical depth on platform modernization, secure software supply chain, and AI-powered developer workflows. Live demos showcase integrated CI/CD, security, and migration capabilities.
           </p>
           <p style="margin:0;">
-            We close with applied guidance, customer stories, and an open Q&A—then informal networking.
+            We close with applied guidance, customer stories, and an open Q&amp;A—then informal networking.
           </p>
         </div>
       </div>
@@ -644,33 +367,33 @@
       <div class="segments">
         <div class="segment">
           <div class="segment-label">Segment 1</div>
-            <div class="segment-title">Opening & Context</div>
-            <div class="segment-desc">Why platform consolidation & GitHub strategy evolution.</div>
+          <div class="segment-title">Opening &amp; Context</div>
+          <div class="segment-desc">Why platform consolidation &amp; GitHub strategy evolution.</div>
         </div>
         <div class="segment">
           <div class="segment-label">Segment 2</div>
-            <div class="segment-title">Azure DevOps → GitHub</div>
-            <div class="segment-desc">Architecture contrasts & migration decision points.</div>
+          <div class="segment-title">Azure DevOps → GitHub</div>
+          <div class="segment-desc">Architecture contrasts &amp; migration decision points.</div>
         </div>
         <div class="segment">
           <div class="segment-label">Segment 3</div>
-            <div class="segment-title">Migration Strategies</div>
-            <div class="segment-desc">Discovery, sequencing, tooling & execution patterns.</div>
+          <div class="segment-title">Migration Strategies</div>
+          <div class="segment-desc">Discovery, sequencing, tooling &amp; execution patterns.</div>
         </div>
         <div class="segment">
           <div class="segment-label">Segment 4</div>
-            <div class="segment-title">Integrated CI/CD & Security</div>
-            <div class="segment-desc">Actions, supply chain security & policy automation.</div>
+          <div class="segment-title">Integrated CI/CD &amp; Security</div>
+          <div class="segment-desc">Actions, supply chain security &amp; policy automation.</div>
         </div>
         <div class="segment">
           <div class="segment-label">Segment 5</div>
-            <div class="segment-title">AI & Developer Productivity</div>
-            <div class="segment-desc">Copilot, code quality, review acceleration.</div>
+          <div class="segment-title">AI &amp; Developer Productivity</div>
+          <div class="segment-desc">Copilot, code quality, review acceleration.</div>
         </div>
         <div class="segment">
           <div class="segment-label">Segment 6</div>
-            <div class="segment-title">Stories & Q&A</div>
-            <div class="segment-desc">Customer insights, lessons & open discussion.</div>
+          <div class="segment-title">Stories &amp; Q&amp;A</div>
+          <div class="segment-desc">Customer insights, lessons &amp; open discussion.</div>
         </div>
       </div>
     </section>
@@ -695,24 +418,24 @@
             </div>
             <div>
               <strong>Migration Toolkit:</strong>
-              Repo, board & pipeline migration patterns; data integrity & phased rollout.
+              Repo, board &amp; pipeline migration patterns; data integrity &amp; phased rollout.
             </div>
           </li>
-            <li class="highlight-item">
-              <div class="highlight-icon">
-                <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
-              </div>
-              <div>
-                <strong>AI-Powered Platform:</strong>
-                Copilot for PRs, agent workflows, code quality acceleration & knowledge reuse.
-              </div>
-            </li>
           <li class="highlight-item">
             <div class="highlight-icon">
               <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
             </div>
             <div>
-              <strong>Security & Compliance:</strong>
+              <strong>AI-Powered Platform:</strong>
+              Copilot for PRs, agent workflows, code quality acceleration &amp; knowledge reuse.
+            </div>
+          </li>
+          <li class="highlight-item">
+            <div class="highlight-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+            </div>
+            <div>
+              <strong>Security &amp; Compliance:</strong>
               Secret scanning, supply chain security, policy-as-code, proactive governance.
             </div>
           </li>
@@ -721,8 +444,8 @@
               <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
             </div>
             <div>
-              <strong>Observability & Insights:</strong>
-              Metrics for adoption, productivity & platform health dashboards.
+              <strong>Observability &amp; Insights:</strong>
+              Metrics for adoption, productivity &amp; platform health dashboards.
             </div>
           </li>
         </ul>
@@ -736,13 +459,11 @@
         <div>
           <p style="margin:0 0 6px; font-size:15px; font-weight:500; color:var(--text);">Microsoft Stockholm</p>
           <p style="margin:0 0 18px; font-size:14px; line-height:1.5;">
-            <a href="https://www.google.com/maps/search/?api=1&query=Regeringsgatan+25+Stockholm" target="_blank">
+            <a href="https://www.google.com/maps/search/?api=1&query=Regeringsgatan+25+Stockholm" target="_blank" rel="noopener">
               Regeringsgatan 25, 111 53 Stockholm, Sweden
             </a>
           </p>
-          <p>
-            Arrive early for coffee and informal introductions. The program begins promptly at 12:30 PM. Badge collection at reception.
-          </p>
+          <p>Arrive early for coffee and informal introductions. The program begins promptly at 12:30 PM. Badge collection at reception.</p>
         </div>
         <div class="map-embed">
           <iframe
@@ -778,7 +499,7 @@
           </div>
           <div>
             <h3 class="speaker-name">To Be Confirmed</h3>
-            <p class="speaker-role">Microsoft • Cloud & DevOps</p>
+            <p class="speaker-role">Microsoft • Cloud &amp; DevOps</p>
             <p class="speaker-bio">
               Focused on bridging platform modernization with secure cloud-native delivery, helping teams accelerate value while reducing operational friction.
             </p>
@@ -790,7 +511,7 @@
           </div>
           <div>
             <h3 class="speaker-name">To Be Confirmed</h3>
-            <p class="speaker-role">Eficode • DevOps & Adoption</p>
+            <p class="speaker-role">Eficode • DevOps &amp; Adoption</p>
             <p class="speaker-bio">
               Specializes in adoption strategy, organizational enablement, and measurable outcomes in platform consolidation and DevSecOps execution.
             </p>
@@ -830,26 +551,20 @@
   </footer>
 
   <script>
-    // Smooth scroll (native behavior in modern browsers with CSS could also be used)
     document.querySelectorAll('.nav-links a, .nav-cta a, a.btn[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const id = a.getAttribute('href');
         if (id.startsWith('#')) {
           const el = document.querySelector(id);
-            if (el) {
-              e.preventDefault();
-              window.scrollTo({ top: el.offsetTop - 70, behavior: 'smooth' });
-            }
+          if (el) {
+            e.preventDefault();
+            window.scrollTo({ top: el.offsetTop - 70, behavior: 'smooth' });
+          }
         }
       });
     });
-
-    // Active section highlighting
     const navLinks = [...document.querySelectorAll('.nav-links a')];
-    const sections = navLinks
-      .map(l => document.querySelector(l.getAttribute('href')))
-      .filter(Boolean);
-
+    const sections = navLinks.map(l => document.querySelector(l.getAttribute('href'))).filter(Boolean);
     function onScroll() {
       const y = window.scrollY + 120;
       let current = sections[0];
@@ -863,10 +578,5 @@
     document.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   </script>
-</body>
-</html>
-  <footer>
-    &copy; 2025 GitHub, Microsoft, Eficode — Stockholm Event
-  </footer>
 </body>
 </html>
