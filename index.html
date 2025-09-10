@@ -7,10 +7,7 @@
   <meta name="description" content="From Azure DevOps to GitHub: Migrate, Integrate & Accelerate with GitHub Copilot — Stockholm. Strategy, migration best practices, hybrid models, security, AI, and platform innovation." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg: #f5f7fa;
@@ -23,17 +20,10 @@
       --primary: #6d46f7;
       --primary-accent: #845dfc;
       --primary-rgb: 109,70,247;
-      --radius-s: 6px;
-      --radius: 12px;
-      --radius-l: 20px;
-      --shadow-sm: 0 1px 2px rgba(17,24,39,0.06), 0 0 0 1px rgba(17,24,39,0.04);
       --shadow: 0 4px 16px -2px rgba(17,24,39,0.08), 0 2px 6px rgba(17,24,39,0.05);
-      --shadow-lg: 0 10px 32px -4px rgba(17,24,39,0.18), 0 2px 8px rgba(17,24,39,0.06);
-      --gradient-hero: linear-gradient(115deg,#f3efff 0%,#e9e5ff 33%,#e6f0ff 66%,#f5f8ff 100%);
-      --gradient-accent: radial-gradient(circle at 65% 40%, rgba(136,104,255,0.20), transparent 60%);
+      --highlight-icon: #10b981;
       --segment-bg: #fafbff;
       --segment-border: #e5e9f3;
-      --highlight-icon: #10b981;
       --font-stack: 'Inter', system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;
     }
     * { box-sizing: border-box; }
@@ -46,6 +36,7 @@
     }
     a { color: var(--primary); text-decoration: none; }
     a:hover { text-decoration: underline; }
+    /* Navigation */
     .nav {
       position: sticky; top: 0; z-index: 60;
       background: rgba(255,255,255,0.82);
@@ -85,10 +76,12 @@
     }
     .btn:hover { background: var(--btn-bg-hover); text-decoration: none; }
     .btn:active { transform: translateY(1px); }
-    .hero { position: relative; background: var(--gradient-hero); overflow: hidden; }
+    /* Hero */
+    .hero { position: relative; background: linear-gradient(115deg,#f3efff 0%,#e9e5ff 33%,#e6f0ff 66%,#f5f8ff 100%); overflow: hidden; }
     .hero::after {
       content:""; position: absolute; inset: 0;
-      background: var(--gradient-accent); mix-blend-mode: multiply; pointer-events:none;
+      background: radial-gradient(circle at 65% 40%, rgba(136,104,255,0.20), transparent 60%);
+      mix-blend-mode: multiply; pointer-events:none;
     }
     .hero-inner {
       max-width:1280px; margin:0 auto;
@@ -113,6 +106,7 @@
     .hero-lead p { margin:0 0 16px; }
     .hero-lead p:last-child { margin-bottom:0; }
     .hero-actions { display:flex; flex-wrap:wrap; gap:14px; }
+    /* Info panel */
     .info-panel {
       background: var(--surface); border-radius:14px;
       padding:26px 26px 22px; box-shadow: var(--shadow);
@@ -132,6 +126,7 @@
       color:var(--text-faint); margin-bottom:2px;
     }
     .info-value { font-size:13.5px; font-weight:500; color:var(--text); }
+    /* Layout */
     main {
       max-width:1280px; margin:0 auto;
       padding:18px 30px 120px;
@@ -149,29 +144,22 @@
       font-weight:600; color:var(--text);
     }
     p { font-size:15px; line-height:1.55; margin:0 0 18px; color:var(--text-light); }
-    .segments { display:flex; flex-wrap:wrap; gap:18px; }
-    .segment {
-      flex:1 1 200px; min-width:200px;
-      background:var(--segment-bg);
-      border:1px solid var(--segment-border);
-      border-radius:14px; padding:18px 18px 16px;
-      display:flex; flex-direction:column; gap:8px;
-      position:relative; box-shadow:0 2px 6px rgba(17,24,39,0.04);
-      transition:border-color .15s, background .2s;
+    /* Updated Event Details styles */
+    .event-details-list, .agenda-timetable {
+      list-style:none; padding:0; margin:0;
+      display:flex; flex-direction:column; gap:10px;
     }
-    .segment:hover { border-color:#d3d9e5; background:#fdfdff; }
-    .segment-label {
-      font-size:10px; letter-spacing:1.3px;
-      font-weight:600; text-transform:uppercase; color:#5d6473;
+    .event-details-list { font-size:15px; margin:0 0 30px; }
+    .agenda-heading-inline {
+      margin-top:14px;
+      font-size:17px;
+      font-weight:600;
+      letter-spacing:-.2px;
+      color:var(--text);
     }
-    .segment-title {
-      font-size:14.5px; font-weight:600;
-      color:var(--text); letter-spacing:-.2px;
-    }
-    .segment-desc {
-      font-size:12.8px; line-height:1.35;
-      color:var(--text-faint); font-weight:500;
-    }
+    .agenda-timetable { font-size:14px; margin-top:14px; }
+    .agenda-timetable li strong { font-weight:600; letter-spacing:.2px; color:var(--text); }
+    /* Highlights */
     .highlight-list { list-style:none; margin:0; padding:0; display:grid; gap:10px; }
     .highlight-item {
       display:flex; gap:16px; padding:14px 18px;
@@ -180,6 +168,7 @@
     }
     .highlight-item strong { display:block; font-weight:600; margin-bottom:2px; color:var(--text); }
     .highlight-icon { width:20px; height:20px; margin-top:2px; flex-shrink:0; color:var(--highlight-icon); }
+    /* Location */
     .location-grid {
       display:grid; grid-template-columns:1fr 430px;
       gap:60px; align-items:start;
@@ -190,6 +179,7 @@
       border-radius:16px; overflow:hidden; box-shadow:var(--shadow);
     }
     .map-embed iframe { width:100%; height:100%; border:0; }
+    /* Speakers */
     .speakers-grid {
       display:grid;
       grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
@@ -213,6 +203,7 @@
     .speaker-name { font-size:14.5px; margin:0 0 4px; font-weight:600; letter-spacing:.2px; color:var(--text); }
     .speaker-role { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:1px; color:var(--text-faint); margin:0 0 14px; }
     .speaker-bio { font-size:13.2px; line-height:1.5; color:var(--text-light); margin:0; }
+    /* Footer */
     footer {
       margin-top:90px; background:#fff; border-top:1px solid var(--border);
       padding:48px 30px 70px;
@@ -222,38 +213,6 @@
       font-size:13px; color:var(--text-faint);
       display:flex; flex-wrap:wrap; gap:26px;
       align-items:center; justify-content:space-between;
-    }
-    .event-details-list {
-      list-style:none;
-      padding:0;
-      margin:0 0 30px;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      font-size:15px;
-      line-height:1.45;
-    }
-    .agenda-timetable {
-      list-style:none;
-      padding:0;
-      margin:14px 0 0;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      font-size:14px;
-      line-height:1.45;
-    }
-    .agenda-timetable li strong {
-      font-weight:600;
-      letter-spacing:.2px;
-      color:var(--text);
-    }
-    .agenda-heading-inline {
-      margin-top:14px;
-      font-size:17px;
-      font-weight:600;
-      letter-spacing:-.2px;
-      color:var(--text);
     }
   </style>
 </head>
@@ -270,7 +229,7 @@
       </div>
       <div class="nav-links">
         <a href="#about">About</a>
-        <a href="#agenda">Agenda</a>
+        <!-- Removed Agenda link as requested (segments section removed) -->
         <a href="#highlights">Highlights</a>
         <a href="#location">Location</a>
         <a href="#speakers">Speakers</a>
@@ -363,7 +322,7 @@
   </header>
 
   <main>
-    <!-- UPDATED SECTION -->
+    <!-- Updated Event Details Section -->
     <section id="flow">
       <div class="card">
         <h2 class="section-title" style="margin-top:0;">Event Details</h2>
@@ -372,12 +331,11 @@
           <li>📍 <strong>Location:</strong> Microsoft Stockholm – Regeringsgatan 25, 111 53 Stockholm, Sweden</li>
           <li>🏢 <strong>Hosted by:</strong> GitHub, Microsoft, and Eficode</li>
         </ul>
-
         <h3 class="agenda-heading-inline">Event Agenda</h3>
         <ul class="agenda-timetable">
           <li><strong>12:00 – 13:00</strong> | Welcome &amp; Lunch</li>
           <li><strong>13:00 – 13:45</strong> | Session 1: Benefits of GitHub | Reasons to move (by Microsoft)</li>
-            <li><strong>13:45 – 14:30</strong> | Session 2: The future of GitHub &amp; GitHub Copilot (by GitHub)</li>
+          <li><strong>13:45 – 14:30</strong> | Session 2: The future of GitHub &amp; GitHub Copilot (by GitHub)</li>
           <li><strong>14:30 – 14:45</strong> | Break</li>
           <li><strong>14:45 – 15:30</strong> | Session 3: Unlocking the Potential | GitHub Setup, Integration and Migration (by Eficode)</li>
           <li><strong>15:30 – 16:00</strong> | Q&amp;A</li>
@@ -386,46 +344,11 @@
       </div>
     </section>
 
-    <!-- Agenda -->
-    <section id="agenda">
-      <h2 class="section-title">Agenda</h2>
-      <div class="segments">
-        <div class="segment">
-          <div class="segment-label">Segment 1</div>
-          <div class="segment-title">Opening &amp; Context</div>
-          <div class="segment-desc">Why platform consolidation &amp; GitHub strategy evolution.</div>
-        </div>
-        <div class="segment">
-          <div class="segment-label">Segment 2</div>
-          <div class="segment-title">Azure DevOps → GitHub</div>
-          <div class="segment-desc">Architecture contrasts &amp; migration decision points.</div>
-        </div>
-        <div class="segment">
-          <div class="segment-label">Segment 3</div>
-          <div class="segment-title">Migration Strategies</div>
-          <div class="segment-desc">Discovery, sequencing, tooling &amp; execution patterns.</div>
-        </div>
-        <div class="segment">
-          <div class="segment-label">Segment 4</div>
-          <div class="segment-title">Integrated CI/CD &amp; Security</div>
-          <div class="segment-desc">Actions, supply chain security &amp; policy automation.</div>
-        </div>
-        <div class="segment">
-          <div class="segment-label">Segment 5</div>
-          <div class="segment-title">AI &amp; Developer Productivity</div>
-          <div class="segment-desc">Copilot, code quality, review acceleration.</div>
-        </div>
-        <div class="segment">
-          <div class="segment-label">Segment 6</div>
-          <div class="segment-title">Stories &amp; Q&amp;A</div>
-          <div class="segment-desc">Customer insights, lessons &amp; open discussion.</div>
-        </div>
-      </div>
-    </section>
+    <!-- Removed second agenda segments section as requested -->
 
     <!-- Highlights -->
     <section id="highlights">
-      <h2 class="section-title">Live Demo Highlights</h2>
+      <h2 class="section-title">Life Copilot Demo highlights</h2>
       <div class="card" style="padding:30px 32px;">
         <ul class="highlight-list">
           <li class="highlight-item">
@@ -506,45 +429,48 @@
     <section id="speakers">
       <h2 class="section-title">Speakers</h2>
       <div class="speakers-grid">
+        <!-- Microsoft (Left) -->
         <div class="speaker-card">
           <div class="speaker-photo-wrap">
-            <img class="speaker-photo" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Speaker placeholder">
+            <img class="speaker-photo" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microsoft.svg" alt="Microsoft logo">
           </div>
           <div>
-            <h3 class="speaker-name">To Be Confirmed</h3>
-            <p class="speaker-role">GitHub • Platform Strategy</p>
+            <h3 class="speaker-name">Microsoft Speaker</h3>
+            <p class="speaker-role">Cloud &amp; Platform Strategy</p>
             <p class="speaker-bio">
-              Deep experience guiding enterprise transformation through unified developer platforms, modernization patterns, and AI-assisted engineering productivity uplift.
+              Sharing the enterprise perspective on modern platform evolution, governance alignment, and strategic drivers for adopting GitHub alongside or beyond Azure DevOps.
             </p>
           </div>
         </div>
+        <!-- GitHub (Middle) -->
         <div class="speaker-card">
           <div class="speaker-photo-wrap">
-            <img class="speaker-photo" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Speaker placeholder">
+            <img class="speaker-photo" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub logo">
           </div>
           <div>
-            <h3 class="speaker-name">To Be Confirmed</h3>
-            <p class="speaker-role">Microsoft • Cloud &amp; DevOps</p>
+            <h3 class="speaker-name">GitHub Speaker</h3>
+            <p class="speaker-role">GitHub Copilot &amp; Platform</p>
             <p class="speaker-bio">
-              Focused on bridging platform modernization with secure cloud-native delivery, helping teams accelerate value while reducing operational friction.
+              Exploring roadmap direction, AI-assisted development with Copilot, and integrated security and productivity features that accelerate engineering velocity.
             </p>
           </div>
         </div>
+        <!-- Eficode (Right) -->
         <div class="speaker-card">
           <div class="speaker-photo-wrap">
-            <img class="speaker-photo" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Speaker placeholder">
+            <img class="speaker-photo" src="https://avatars.githubusercontent.com/u/1120166?s=200&v=4" alt="Eficode logo">
           </div>
           <div>
-            <h3 class="speaker-name">To Be Confirmed</h3>
-            <p class="speaker-role">Eficode • DevOps &amp; Adoption</p>
+            <h3 class="speaker-name">Eficode Speaker</h3>
+            <p class="speaker-role">Migration &amp; Adoption</p>
             <p class="speaker-bio">
-              Specializes in adoption strategy, organizational enablement, and measurable outcomes in platform consolidation and DevSecOps execution.
+              Offering practical guidance on sequencing migrations, integrating toolchains, enabling teams, and maximizing long-term value through measurable adoption frameworks.
             </p>
           </div>
         </div>
       </div>
       <p style="margin-top:34px; font-size:13px; color:var(--text-faint);">
-        Final speaker lineup will be published closer to the event date.
+        Final speaker names will be confirmed and published closer to the event date.
       </p>
     </section>
 
