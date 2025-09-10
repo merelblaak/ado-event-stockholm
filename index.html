@@ -2,52 +2,65 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>From Azure DevOps to GitHub: Migrate, Integrate & Accelerate – Stockholm</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Join GitHub, Microsoft, and Eficode in Stockholm to learn about migrating from Azure DevOps to GitHub, integrating DevOps workflows, and accelerating software delivery.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Inter', Arial, sans-serif;
-      background: #f5f6fa;
+      background: #f7f8fa;
       color: #222;
     }
-    .main-header {
-      background: linear-gradient(90deg, #343ea3 0%, #24292f 100%);
-      color: #fff;
-      padding: 48px 0 32px 0;
-      text-align: center;
+    .hero {
+      width: 100%;
+      height: 240px;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center center/cover no-repeat;
+      position: relative;
     }
-    .main-header h1 {
-      font-size: 2.3em;
-      margin: 0 0 16px 0;
+    .hero-title {
+      position: absolute;
+      bottom: 26px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      color: #fff;
+      font-size: 2.2em;
       font-weight: 600;
       letter-spacing: -1px;
+      text-shadow: 0 3px 18px rgba(0,0,0,0.29);
     }
-    .main-header .subtitle {
-      font-size: 1.2em;
-      font-weight: 400;
-      margin-bottom: 18px;
-    }
-    .main-header .event-details {
-      font-size: 1em;
-      margin-bottom: 0;
-      line-height: 1.7;
-    }
-    .content {
-      max-width: 680px;
-      margin: 40px auto;
-      padding: 40px 24px;
+    .container {
+      max-width: 700px;
+      margin: -60px auto 40px auto;
       background: #fff;
-      border-radius: 14px;
-      box-shadow: 0 4px 20px rgba(36,41,47,0.12);
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(36,41,47,0.13);
+      padding: 40px 32px;
+      position: relative;
+      z-index: 2;
+    }
+    .event-details {
+      background: #343ea3;
+      color: #fff;
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 28px;
+      box-shadow: 0 2px 8px rgba(36,41,47,0.08);
+    }
+    .event-details strong {
+      display: inline-block;
+      min-width: 85px;
     }
     h2 {
-      font-size: 1.35em;
+      font-size: 1.25em;
       color: #343ea3;
-      margin-top: 2.2em;
-      margin-bottom: 0.7em;
       font-weight: 600;
+      margin-top: 2.1em;
+      margin-bottom: 0.7em;
     }
     ul, ol {
       margin: 0 0 1.5em 1.4em;
@@ -61,15 +74,15 @@
     .register-btn {
       background: #343ea3;
       color: #fff;
-      border: none;
       padding: 16px 38px;
       font-size: 1.1em;
       border-radius: 8px;
       cursor: pointer;
       text-decoration: none;
       font-weight: 600;
-      margin-top: 32px;
+      margin-top: 24px;
       display: inline-block;
+      border: none;
       transition: background 0.2s;
     }
     .register-btn:hover {
@@ -104,12 +117,12 @@
       margin-bottom: 3px;
     }
     .speaker-card .role {
-      font-size: 0.95em;
+      font-size: 0.97em;
       color: #222;
       margin-bottom: 2px;
     }
     .speaker-card .company {
-      font-size: 0.93em;
+      font-size: 0.94em;
       color: #343ea3;
       margin-bottom: 5px;
     }
@@ -122,7 +135,7 @@
       background: none;
     }
     @media (max-width: 700px) {
-      .content {
+      .container {
         padding: 18px 8px;
       }
       .speakers {
@@ -130,26 +143,30 @@
         gap: 16px;
         align-items: center;
       }
+      .hero {
+        height: 150px;
+      }
+      .hero-title {
+        font-size: 1.4em;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="main-header">
-    <h1>From Azure DevOps to GitHub: Migrate, Integrate & Accelerate – Stockholm</h1>
-    <div class="subtitle">
-      The future of DevOps is here. Are you ready to migrate, integrate, and accelerate your development workflows?
-    </div>
-    <div class="event-details">
-      <strong>Date:</strong> 20th October 2025<br>
-      <strong>Time:</strong> 12:00 - 17:00<br>
-      <strong>Location:</strong> Microsoft Stockholm – Regeringsgatan 25, 111 53 Stockholm, Sweden<br>
-      <strong>Hosted by:</strong> GitHub, Microsoft, Eficode
-    </div>
+  <div class="hero">
+    <div class="hero-title">From Azure DevOps to GitHub: Migrate, Integrate & Accelerate – Stockholm</div>
   </div>
-  <div class="content">
+  <div class="container">
+    <div class="event-details">
+      <div><strong>Date:</strong> 20th October 2025</div>
+      <div><strong>Time:</strong> 12:00 - 17:00</div>
+      <div><strong>Location:</strong> Microsoft Stockholm – Regeringsgatan 25, 111 53 Stockholm, Sweden</div>
+      <div><strong>Hosted by:</strong> GitHub, Microsoft, Eficode</div>
+    </div>
     <section>
       <h2>Description</h2>
       <p>
+        The future of DevOps is here. Are you ready to migrate, integrate, and accelerate your development workflows?<br>
         This Stockholm event is designed for organizations considering a move from Azure DevOps to GitHub or seeking best practices for hybrid toolchains.<br>
         Discover how seamless migration can help you unlock the power of GitHub’s developer platform, foster collaboration and innovation, and future-proof your DevOps infrastructure.
       </p>
@@ -209,6 +226,11 @@
       <a class="register-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfbaY3Tt4hx1jCtaMo7qJaxMFtmQHnfAcMhUhJFm7viUcaEPQ/viewform?usp=dialog" target="_blank">Register Here</a>
     </section>
   </div>
+  <footer>
+    &copy; 2025 GitHub, Microsoft, Eficode — Stockholm Event
+  </footer>
+</body>
+</html>
   <footer>
     &copy; 2025 GitHub, Microsoft, Eficode — Stockholm Event
   </footer>
