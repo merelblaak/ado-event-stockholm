@@ -5,6 +5,15 @@
   <title>From Azure DevOps to GitHub – Migrate, Integrate & Accelerate with GitHub Copilot</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="From Azure DevOps to GitHub. Migrate, Integrate & Accelerate with GitHub Copilot. Event in Stockholm hosted by Microsoft, GitHub and Eficode." />
+  <meta property="og:title" content="From Azure DevOps to GitHub" />
+  <meta property="og:description" content="Migrate, Integrate & Accelerate with GitHub Copilot. October 20, 2025 – 12:30–17:00, Microsoft Stockholm. Vision • Live Demos • Strategy • Q&A • Networking." />
+  <meta property="og:image" content="YOUR_IMAGE_URL_HERE" />
+  <meta property="og:url" content="https://merelblaak.github.io/ado-event-stockholm/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="From Azure DevOps to GitHub" />
+  <meta name="twitter:description" content="Migrate, Integrate & Accelerate with GitHub Copilot. October 20, 2025 – 12:30–17:00, Microsoft Stockholm. Vision • Live Demos • Strategy • Q&A • Networking." />
+  <meta name="twitter:image" content="YOUR_IMAGE_URL_HERE" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -203,7 +212,7 @@
     /* Speakers */
     .speakers-grid {
       display:grid;
-      grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+      grid-template-columns:repeat(6, minmax(180px,1fr));
       gap:30px;
     }
     .speaker-card {
@@ -212,19 +221,20 @@
       padding:30px 26px 30px; box-shadow:var(--shadow);
       display:flex; flex-direction:column; gap:18px;
       position:relative; overflow:hidden;
+      align-items:center;
     }
     .speaker-photo-wrap {
       width:84px; height:84px; border-radius:50%;
       background:linear-gradient(140deg,var(--primary) 0%, #9d85ff 100%);
       padding:3px; display:flex; align-items:center; justify-content:center;
       box-shadow:0 4px 14px -2px rgba(var(--primary-rgb),0.4);
+      margin-bottom:8px;
     }
     .speaker-photo {
-      width:100%; height:100%; border-radius:50%; object-fit:contain; background:#fff; display:block; padding:10px;
+      width:100%; height:100%; border-radius:50%; object-fit:cover; background:#fff; display:block;
     }
-    .speaker-name { font-size:14.5px; margin:0 0 4px; font-weight:600; letter-spacing:.2px; color:var(--text); }
-    .speaker-role { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:1px; color:var(--text-faint); margin:0 0 14px; }
-    .speaker-bio { font-size:13.2px; line-height:1.5; color:var(--text-light); margin:0; }
+    .speaker-name { font-size:14.5px; margin:0 0 4px; font-weight:600; letter-spacing:.2px; color:var(--text); text-align:center; }
+    .speaker-role { font-size:12px; font-weight:500; color:var(--text-faint); text-align:center; margin:0 0 8px; }
 
     /* Footer */
     footer {
@@ -238,6 +248,13 @@
       font-size:13px; color:var(--text-faint);
       display:flex; flex-wrap:wrap; gap:26px;
       align-items:center; justify-content:space-between;
+    }
+    @media (max-width:1100px){
+      .speakers-grid { grid-template-columns:repeat(2,minmax(180px,1fr)); }
+    }
+    @media (max-width:700px){
+      .speakers-grid { grid-template-columns:1fr; gap:18px; }
+      .hero-inner, main { padding-left:10px; padding-right:10px; }
     }
   </style>
 </head>
@@ -453,49 +470,66 @@
     <section id="speakers">
       <h2 class="section-title">Speakers</h2>
       <div class="speakers-grid">
-        <!-- Microsoft -->
+        <!-- Jonas Teite Nilsson -->
         <div class="speaker-card">
           <div class="speaker-photo-wrap">
-            <img class="speaker-photo" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microsoft.svg" alt="Microsoft logo">
+            <img class="speaker-photo" src="IMAGE_3_URL" alt="Jonas Teite Nilsson">
           </div>
           <div>
-            <h3 class="speaker-name">Microsoft Speaker</h3>
-            <p class="speaker-role">Cloud &amp; Platform Strategy</p>
-            <p class="speaker-bio">
-              Enterprise perspective on platform evolution, governance alignment, and strategic drivers for adopting GitHub alongside or beyond Azure DevOps.
-            </p>
+            <h3 class="speaker-name">Jonas Teite Nilsson</h3>
+            <p class="speaker-role">Sales Manager Cloud Native &amp; AI at Microsoft</p>
           </div>
         </div>
-        <!-- GitHub -->
+        <!-- Omur Sert -->
         <div class="speaker-card">
           <div class="speaker-photo-wrap">
-            <img class="speaker-photo" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub logo">
-          </div>
-            <div>
-              <h3 class="speaker-name">GitHub Speaker</h3>
-              <p class="speaker-role">GitHub Copilot &amp; Platform</p>
-              <p class="speaker-bio">
-                Roadmap direction, AI-assisted development with Copilot, and integrated security &amp; productivity features that accelerate engineering velocity.
-              </p>
-            </div>
-        </div>
-        <!-- Eficode -->
-        <div class="speaker-card">
-          <div class="speaker-photo-wrap">
-            <img class="speaker-photo" src="https://avatars.githubusercontent.com/u/1120166?s=200&v=4" alt="Eficode logo">
+            <img class="speaker-photo" src="IMAGE_4_URL" alt="Omur Sert">
           </div>
           <div>
-            <h3 class="speaker-name">Eficode Speaker</h3>
-            <p class="speaker-role">Migration &amp; Adoption</p>
-            <p class="speaker-bio">
-              Practical guidance on sequencing migrations, integrating toolchains, enabling teams, and maximizing long-term value through measurable adoption frameworks.
-            </p>
+            <h3 class="speaker-name">Omur Sert</h3>
+            <p class="speaker-role">Senior Manager for Corporate Europe-North at GitHub</p>
+          </div>
+        </div>
+        <!-- Aaron Hallberg -->
+        <div class="speaker-card">
+          <div class="speaker-photo-wrap">
+            <img class="speaker-photo" src="IMAGE_6_URL" alt="Aaron Hallberg">
+          </div>
+          <div>
+            <h3 class="speaker-name">Aaron Hallberg</h3>
+          </div>
+        </div>
+        <!-- Nerea Leguinazabal -->
+        <div class="speaker-card">
+          <div class="speaker-photo-wrap">
+            <img class="speaker-photo" src="IMAGE_7_URL" alt="Nerea Leguinazabal">
+          </div>
+          <div>
+            <h3 class="speaker-name">Nerea Leguinazabal</h3>
+            <p class="speaker-role">Software Engineer</p>
+          </div>
+        </div>
+        <!-- Alessandra Vicini -->
+        <div class="speaker-card">
+          <div class="speaker-photo-wrap">
+            <img class="speaker-photo" src="IMAGE_9_URL" alt="Alessandra Vicini">
+          </div>
+          <div>
+            <h3 class="speaker-name">Alessandra Vicini</h3>
+            <p class="speaker-role">Software Engineer</p>
+          </div>
+        </div>
+        <!-- Magnus Timner -->
+        <div class="speaker-card">
+          <div class="speaker-photo-wrap">
+            <img class="speaker-photo" src="IMAGE_8_URL" alt="Magnus Timner">
+          </div>
+          <div>
+            <h3 class="speaker-name">Magnus Timner</h3>
+            <p class="speaker-role">VP and Co-founder of Solidify/Eficode</p>
           </div>
         </div>
       </div>
-      <p style="margin-top:34px; font-size:13px; color:var(--text-faint);">
-        Final speaker names will be confirmed and published closer to the event date.
-      </p>
     </section>
 
     <!-- Register -->
